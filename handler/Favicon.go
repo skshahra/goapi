@@ -8,5 +8,5 @@ import (
 )
 
 func (H *DatabaseCollections) Favicon(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "../templates/favicon.ico")
+	http.ServeFile(w, r, "templates/favicon.ico")
 }

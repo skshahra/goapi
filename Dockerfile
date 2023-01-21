@@ -9,11 +9,12 @@ RUN go build -o main main.go
 FROM alpine:3.16
 RUN mkdir -p /app/env
 WORKDIR /app 
-COPY --from=builder /app/main .  
-COPY --from=builder /app/env/.env /app/env/
+COPY --from=builder /app/main /app/ 
+COPY --from=builder /app/env/.env /app/env/.env
 
 # this shoud not be run in production
 # COPY app.env . 
 
 EXPOSE 8080 
 CMD ["/app/main"]
+# ENTRYPOINT [ "./app/main" ]
