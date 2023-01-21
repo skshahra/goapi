@@ -27,7 +27,7 @@ func (H *DatabaseCollections) Login(w http.ResponseWriter, r *http.Request) {
 	data:= struct {
 		HOST string
 	}{
-		HOST: os.Getenv("SERVER_IP"),
+		HOST: os.Getenv("IP")+":"+os.Getenv("PORT"),
 	}
 	t,err:=template.ParseFiles("templates/login2.html")
 

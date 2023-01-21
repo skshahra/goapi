@@ -28,7 +28,7 @@ func main(){
 
 	HttpServer := &http.Server{
 		Handler: r,
-		Addr:  os.Getenv("SERVER_IP"),
+		Addr:  os.Getenv("IP")+":"+os.Getenv("PORT"),
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}

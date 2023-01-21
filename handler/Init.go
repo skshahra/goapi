@@ -47,7 +47,7 @@ func LoadConfig() {
 		ClientID:     os.Getenv("GOOGLE_CLIENT_ID"),
 		ClientSecret: os.Getenv("GOOGLE_CLIENT_SECRET"),
 		Endpoint:     google.Endpoint,
-		RedirectURL:  "http://"+os.Getenv("SERVER_IP")+"/api/googlelogin/callback",
+		RedirectURL:  "http://"+os.Getenv("IP")+":"+os.Getenv("PORT")+"/api/googlelogin/callback",
 		Scopes: []string{
 			"https://www.googleapis.com/auth/userinfo.email",
 			"https://www.googleapis.com/auth/userinfo.profile",
