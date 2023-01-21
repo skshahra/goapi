@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="./favicon.ico" />
+    <style>
+      .login-with-google-btn {
+  transition: background-color 0.3s, box-shadow 0.3s;
+  padding: 12px 16px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+}
+.login-with-google-btn:hover {
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+.login-with-google-btn:active {
+  background-color: #eeeeee;
+}
+.login-with-google-btn:focus {
+  outline: none;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25), 0 0 0 3px #c8dafc;
+}
+.login-with-google-btn:disabled {
+  filter: grayscale(100%);
+  background-color: #ebebeb;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+}
+    </style>
+
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <p class="text-2xl flex pt-10 justify-center font-bold">SignUp Form :</p>
+
+    <div class="flex flex-col">
+      <div class="flex flex-col">
+        <div class="flex justify-center">
+          <div class="mb-3 xl:w-96">
+            <label
+              for="myfirstname"
+              class="form-label inline-block mb-2 text-gray-700"
+              >First Name:
+            </label>
+            <input
+              type="text"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="myfirstname"
+              placeholder="First Name"
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="mb-3 xl:w-96">
+            <label
+              for="myfirstname"
+              class="form-label inline-block mb-2 text-gray-700"
+              >Last Name:
+            </label>
+            <input
+              type="text"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="mylastname"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="mb-3 xl:w-96">
+            <label
+              for="email"
+              class="form-label inline-block mb-2 text-gray-700"
+              >Email:
+            </label>
+            <input
+              type="email"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="myemail"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="mb-3 xl:w-96">
+            <label
+              for="password"
+              class="form-label inline-block mb-2 text-gray-700"
+              >Password :
+            </label>
+            <input
+              type="password"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="mypassword"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex space-x-2 justify-center mb-3">
+      <div
+        type="button"
+        id="errormsg"
+        class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+      >
+        Error
+      </div>
+    </div>
+
+    <div class="flex space-x-2 justify-center">
+      <button
+        onclick="sendsignup()"
+        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+      >
+        Sign Up
+      </button>
+
+      <a href="/api/googlelogin">
+
+        <button type="button" class="login-with-google-btn flex flex-row gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/><path d="M1 1h22v22H1z" fill="none"/></svg>
+          <p class="">SignUp with Google</p>
+        </button>
+      </a>
+    </div>
+
+    <div class="flex space-x-2 justify-center mt-3">
+      <button
+        onclick="GotoLogin()"
+        class="inline-block px-6 py-2.5 text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+      >
+        already have an account ?
+      </button>
+    </div>
+
+    <!-- <form method="POST" action="/api/login">
+      <i class="fa fa-user fa-5x"></i>
+      <input id="userName" name="userName" placeholder="Enter your user name" autofocus>
+      <p class="form-field-err"></p>
+      <input id="password" name="password" type="password" placeholder="Enter your password">
+      <p class="form-field-err"></p>
+      <button>Submit</button>
+  </form> -->
+
+    <script>
+      const ValidateEmail = (E) => {
+        return String(E)
+          .toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          );
+      };
+      function ValidateName(e) {
+        return e.match(/^[a-zA-Z\s]*$/);
+      }
+
+      document.getElementById("errormsg").style.visibility = "hidden";
+      let signupData = {
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+      };
+      function sendsignup() {
+        document.getElementById("errormsg").style.visibility = "hidden";
+
+        signupData.firstname = document
+          .getElementById("myfirstname")
+          .value.trim();
+        signupData.lastname = document
+          .getElementById("mylastname")
+          .value.trim();
+        signupData.email = document.getElementById("myemail").value.trim();
+        signupData.password = document.getElementById("mypassword").value;
+        console.log("🚀 signupData : ", signupData);
+        if (signupData.firstname.trim() == "") {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML =
+            "First Name is required";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+        if (signupData.firstname.length < 2) {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML =
+            "First name have to be at least 2 characters";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+        if (!ValidateName(signupData.firstname)) {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML =
+            "First name is not valid";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+
+        if (signupData.lastname.trim() == "") {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML =
+            "Last Name is required";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+        if (signupData.lastname.length < 2) {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML =
+            "Last Name have to be at least 2 characters";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+        if (!ValidateName(signupData.lastname)) {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML =
+            "last name is not valid";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+        if (signupData.email.trim() == "") {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML = "Email is required";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+        if (!ValidateEmail(signupData.email)) {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML = "Email is not valid";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+        if (signupData.password == "") {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML =
+            "Password is not valid/required";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+        if (signupData.password.length < 6) {
+          document.getElementById("errormsg").style.visibility = "visible";
+
+          document.getElementById("errormsg").innerHTML =
+            "Password is not strong";
+          document.getElementById("errormsg").style.display = "block";
+          return;
+        }
+
+        // console.log(loginData);
+        fetch("/api/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(signupData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            window.location.href = "/";
+          })
+          .catch((err) => {
+            document.getElementById("errormsg").style.visibility = "visible";
+
+            document.getElementById("errormsg").innerHTML =
+              "You are already registered";
+            document.getElementById("errormsg").style.display = "block";
+            return;
+          });
+      }
+
+      function GotoLogin() {
+        window.location.href = "/login";
+      }
+    </script>
+  </body>
+</html>
